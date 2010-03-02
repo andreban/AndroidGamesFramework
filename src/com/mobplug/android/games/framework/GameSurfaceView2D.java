@@ -43,7 +43,7 @@ public abstract class GameSurfaceView2D extends SurfaceView implements SurfaceHo
 	
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
-		getGame().stop();
+		gameRunnable.stop();
 	}
 	
 	public abstract Game getGame();
