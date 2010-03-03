@@ -6,11 +6,11 @@ import android.view.SurfaceHolder;
 import com.mobplug.games.framework.interfaces.Game;
 import com.mobplug.games.framework.interfaces.GameRenderer;
 
-public abstract class AndroidGameRenderer2D implements GameRenderer, SurfaceHolder.Callback {
+public abstract class AndroidGameRenderer2D<G extends Game> implements GameRenderer<G>, SurfaceHolder.Callback {
 	private SurfaceHolder holder;
-	protected Game game;
+	protected G game;
 	
-	public AndroidGameRenderer2D(SurfaceHolder holder, Game game) {
+	public AndroidGameRenderer2D(SurfaceHolder holder, G game) {
 		this.game = game;
 		this.holder = holder;
 		holder.addCallback(this);

@@ -10,8 +10,8 @@ import com.mobplug.games.framework.interfaces.Game;
 import com.mobplug.games.framework.interfaces.GameRenderer;
 import com.mobplug.games.framework.interfaces.GameRunnable;
 
-public abstract class GameSurfaceView2D extends SurfaceView implements SurfaceHolder.Callback {
-	private GameRunnable gameRunnable;
+public abstract class GameSurfaceView2D<G extends Game> extends SurfaceView implements SurfaceHolder.Callback {
+	protected GameRunnable gameRunnable;
 	
 	public GameSurfaceView2D(Context context) {
 		super(context);
@@ -29,8 +29,9 @@ public abstract class GameSurfaceView2D extends SurfaceView implements SurfaceHo
 	}
 	
 	private void init() {
-		gameRunnable = new BaseGameRunnable(getRenderer(), getGame());
+		gameRunnable = new BaseGameRunnable<G>(getRenderer(), getGame());
 	}
+
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int type, int width, int height) {
 		
@@ -46,6 +47,6 @@ public abstract class GameSurfaceView2D extends SurfaceView implements SurfaceHo
 		gameRunnable.stop();
 	}
 	
-	public abstract Game getGame();
-	public abstract GameRenderer getRenderer();		
+	public abstract G getGame();
+	public abstract GameRenderer<G> getRenderer();		
 }
