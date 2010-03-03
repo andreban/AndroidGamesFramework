@@ -17,6 +17,7 @@ public abstract class AndroidGameRenderer3D<G extends Game> implements GameRende
 	public AndroidGameRenderer3D(GLSurfaceView glSurfaceView, Game game) {
 		this.game = game;
 		this.glSurfaceView = glSurfaceView;
+        glSurfaceView.setRenderer(this);		
 		glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 	}
 	
