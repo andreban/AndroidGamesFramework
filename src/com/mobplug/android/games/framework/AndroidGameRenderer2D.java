@@ -41,7 +41,6 @@ public abstract class AndroidGameRenderer2D<G extends Game> implements GameRende
 	
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
-				
 	}
 	
 	public abstract void setSize(int width, int height);

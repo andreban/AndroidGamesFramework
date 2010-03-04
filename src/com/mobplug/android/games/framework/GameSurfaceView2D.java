@@ -5,31 +5,32 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.mobplug.games.framework.BaseGameRunnable;
 import com.mobplug.games.framework.interfaces.Game;
 import com.mobplug.games.framework.interfaces.GameRenderer;
 import com.mobplug.games.framework.interfaces.GameRunnable;
 
-public abstract class GameSurfaceView2D<G extends Game> extends SurfaceView implements SurfaceHolder.Callback {
+public class GameSurfaceView2D<G extends Game> extends SurfaceView implements SurfaceHolder.Callback {
 	protected GameRunnable gameRunnable;
+	protected GameRenderer<G> renderer;
 	
 	public GameSurfaceView2D(Context context) {
-		super(context);
-		init();
+		super(context);		
+		getHolder().addCallback(this);
 	}
 
 	public GameSurfaceView2D(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		init();		
+		getHolder().addCallback(this);		
 	}
 
 	public GameSurfaceView2D(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		init();		
+		super(context, attrs);		
+		getHolder().addCallback(this);		
 	}
 	
-	private void init() {
-		gameRunnable = new BaseGameRunnable<G>(getRenderer(), getGame());
+	public void init(GameRunnable gameRunnable, GameRenderer<G> renderer) {
+		this.gameRunnable = gameRunnable;
+		this.renderer = renderer;
 	}
 
 	@Override
@@ -39,14 +40,12 @@ public abstract class GameSurfaceView2D<G extends Game> extends SurfaceView impl
 
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
-		
+		gameRunnable.start();
 	}
 	
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		gameRunnable.stop();
 	}
-	
-	public abstract G getGame();
-	public abstract GameRenderer<G> getRenderer();		
+		
 }
