@@ -41,11 +41,13 @@ public class GameSurfaceView2D<G extends Game> extends SurfaceView implements Su
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
 		gameRunnable.start();
+		setFocusable(true);
 	}
 	
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		gameRunnable.stop();
+		setFocusable(false);
 	}
 		
 }
