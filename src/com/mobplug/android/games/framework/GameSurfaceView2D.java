@@ -5,13 +5,10 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.mobplug.games.framework.interfaces.Game;
-import com.mobplug.games.framework.interfaces.GameRenderer;
 import com.mobplug.games.framework.interfaces.GameRunnable;
 
-public class GameSurfaceView2D<G extends Game> extends SurfaceView implements SurfaceHolder.Callback {
+public class GameSurfaceView2D extends SurfaceView implements SurfaceHolder.Callback {
 	protected GameRunnable gameRunnable;
-	protected GameRenderer<G> renderer;
 	
 	public GameSurfaceView2D(Context context) {
 		super(context);		
@@ -28,9 +25,8 @@ public class GameSurfaceView2D<G extends Game> extends SurfaceView implements Su
 		getHolder().addCallback(this);		
 	}
 	
-	public void init(GameRunnable gameRunnable, GameRenderer<G> renderer) {
+	public void init(GameRunnable gameRunnable) {
 		this.gameRunnable = gameRunnable;
-		this.renderer = renderer;
 	}
 
 	@Override
