@@ -19,10 +19,10 @@ public abstract class AndroidGameRenderer2D<G extends Game> implements GameRende
 	@Override
 	public void render() {
 		Canvas canvas = null;
-		try {
+		try {			
 			canvas = holder.lockCanvas(null);
 			synchronized(holder) {
-				render(canvas);
+				if (canvas != null) render(canvas);
 			}
 		} finally {
 			if (canvas != null) holder.unlockCanvasAndPost(canvas);
