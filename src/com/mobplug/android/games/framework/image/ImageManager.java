@@ -29,4 +29,6 @@ public class ImageManager {
 		if (id >= 0) return imageLoader.load(id, width, height);
 		return null;
 	}	
+	
+
 }

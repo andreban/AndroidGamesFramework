@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
 
 public class ImageLoader {
 	private Context context;
@@ -23,5 +22,16 @@ public class ImageLoader {
 		src.recycle();
 		return resized;
 	}
-		
+	
+	public Bitmap flipImage(Bitmap source) {
+		Matrix m = new Matrix();		
+		m.postScale(-1, 1);
+		return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), m, true);		
+	}	
+	
+	public Bitmap rotateImage(Bitmap source, float degrees) {
+		Matrix m = new Matrix();
+		m.postRotate(degrees);
+		return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), m, true);		
+	}
 }
