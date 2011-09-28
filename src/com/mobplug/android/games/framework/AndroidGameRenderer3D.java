@@ -1,8 +1,5 @@
 package com.mobplug.android.games.framework;
 
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
-
 import android.opengl.GLSurfaceView;
 import android.opengl.GLSurfaceView.Renderer;
 
@@ -25,17 +22,6 @@ public abstract class AndroidGameRenderer3D<G extends Game> implements GameRende
 	public void render() {
 		glSurfaceView.requestRender();
 	}
-
-	@Override
-	public void onSurfaceChanged(GL10 gl, int width, int height) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
