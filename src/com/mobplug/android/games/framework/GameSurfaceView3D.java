@@ -10,7 +10,7 @@ public class GameSurfaceView3D extends GLSurfaceView {
 	protected GameRunnable gameRunnable;
 	
 	public GameSurfaceView3D(Context context) {
-		super(context);
+		super(context);				
 	}
 
 	public GameSurfaceView3D(Context context, AttributeSet attrs) {
