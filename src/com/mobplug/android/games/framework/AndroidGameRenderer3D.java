@@ -9,9 +9,9 @@ import com.mobplug.games.framework.interfaces.GameRenderer;
 public abstract class AndroidGameRenderer3D<G extends Game> implements GameRenderer<G>, Renderer {
 
 	private GLSurfaceView glSurfaceView;
-	protected Game game;
+	protected G game;
 	
-	public AndroidGameRenderer3D(GLSurfaceView glSurfaceView, Game game) {
+	public AndroidGameRenderer3D(GLSurfaceView glSurfaceView, G game) {
 		this.game = game;
 		this.glSurfaceView = glSurfaceView;
         glSurfaceView.setRenderer(this);		
