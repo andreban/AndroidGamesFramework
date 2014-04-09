@@ -1,1 +1,5 @@
-<manifest package="com.mobplug.android.games.framework"></manifest>
+<manifest
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.mobplug.android.games.framework">
+    <uses-sdk android:minSdkVersion="3" android:targetSdkVersion="11"/>
+</manifest>
