@@ -1,4 +1,5 @@
 syntax:glob
 bin
+gen/
 
 syntax:regexp
